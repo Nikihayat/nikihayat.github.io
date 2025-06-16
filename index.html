@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
+    <title>Niki Hayatbini, PhD</title>
     <style>
         * {
             margin: 0;
@@ -16,41 +16,100 @@
             line-height: 1.6;
             color: #333;
             background-color: #fff;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
         }
 
-        .header {
+        /* Navigation Bar */
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #3498db;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+
+        .hero-section {
             text-align: left;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .name {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #2c3e50;
         }
 
         .title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-weight: 400;
         }
 
         .profile-container {
             display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 40px;
+            margin-bottom: 50px;
             align-items: flex-start;
         }
 
         .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 8px;
+            width: 250px;
+            height: 250px;
+            border-radius: 12px;
             object-fit: cover;
             flex-shrink: 0;
             background-color: #ecf0f1;
@@ -62,75 +121,78 @@
             min-width: 0;
         }
 
-        .address {
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
         .bio {
             font-size: 1.1rem;
-            line-height: 1.7;
+            line-height: 1.8;
             text-align: justify;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .bio p {
             margin-bottom: 20px;
         }
 
+        .bio a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .bio a:hover {
+            text-decoration: underline;
+        }
+
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 8px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            width: fit-content;
         }
 
-        .section-title a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        .section-title a:hover {
-            text-decoration: underline;
-        }
-
-        .post-item, .publication-item {
+        .news-item {
+            display: flex;
             margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px solid #f0f0f0;
+            align-items: flex-start;
         }
 
-        .post-item:last-child, .publication-item:last-child {
+        .news-item:last-child {
             border-bottom: none;
         }
 
-        .post-date {
+        .news-date {
             color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-
-        .post-title {
-            font-size: 1.1rem;
             font-weight: 600;
+            min-width: 120px;
+            margin-right: 20px;
+            font-size: 0.95rem;
         }
 
-        .post-title a {
+        .news-content {
+            flex: 1;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .news-content strong {
             color: #2c3e50;
-            text-decoration: none;
         }
 
-        .post-title a:hover {
-            color: #3498db;
-            text-decoration: underline;
+        .publication-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
         }
 
         .publication-title {
@@ -138,6 +200,7 @@
             color: #2c3e50;
             margin-bottom: 8px;
             font-size: 1.1rem;
+            line-height: 1.4;
         }
 
         .publication-venue {
@@ -156,7 +219,29 @@
             text-decoration: underline;
         }
 
+        /* Mobile Styles */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .profile-container {
                 flex-direction: column;
                 align-items: center;
@@ -164,88 +249,140 @@
             }
             
             .profile-pic {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
             }
             
             .name {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .bio {
                 text-align: left;
             }
+
+            .news-item {
+                flex-direction: column;
+            }
+
+            .news-date {
+                min-width: auto;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 class="name">Your Name</h1>
-        <p class="title">Your Professional Title</p>
-    </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Niki Hayatbini, PhD</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">About me</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#cv">CV</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
 
-    <div class="profile-container">
-        <img src="https://via.placeholder.com/200x200/ecf0f1/7f8c8d?text=Your+Photo" alt="Profile Picture" class="profile-pic">
-        
-        <div class="contact-info">
-            <div class="address">
-                Your Address Line 1<br>
-                Your Address Line 2<br>
-                <a href="mailto:your.email@example.com" class="email-link">your.email@example.com</a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="about">
+            <h1 class="name">Niki Hayatbini, PhD</h1>
+            <p class="title">Postdoctoral Scholar at University of Washington</p>
+        </section>
+
+        <!-- Profile and Bio -->
+        <div class="profile-container">
+            <img src="https://via.placeholder.com/250x250/ecf0f1/7f8c8d?text=Your+Photo" alt="Niki Hayatbini" class="profile-pic">
+            
+            <div class="contact-info">
+                <div class="bio">
+                    <p>I am a Postdoctoral Scholar at the University of Washington where I work within the [Your Lab Name] lab.</p>
+                    
+                    <p>I obtained my PhD in [Your Field] from [Your PhD University] where I was a core member of [Your Research Group/Lab].</p>
+                    
+                    <p>My research focuses on [your research areas]. I aim to [your research goals] using a [your approach]. My research involves [specific research activities] and [impact/applications].</p>
+                    
+                    <p>My work has been published in [venues/journals] and has been [recognition/impact]. My research has been supported by [funding sources].</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="bio">
-        <p>Hello! I'm [Your Name]. I completed my [Degree] in [Field] at [University], where I was mentored by [Dr. Mentor Name]. My research encompasses various areas within [your field] such as [area 1], [area 2], [area 3], and [area 4].</p>
-        
-        <p>I am particularly committed to [your specific interest/commitment]. I am an advocate for [cause/methodology], promoting [values]. I believe in the power of [your field] to [impact] and enjoy solving complex problems with effective solutions.</p>
-        
-        <p>Additionally, I have a keen interest in [specific application area]. This includes working on [specific projects/goals]. My aim is to [your professional mission] through the application of [your expertise].</p>
-    </div>
 
-    <section class="section">
-        <h2 class="section-title"><a href="/blog/">latest posts</a></h2>
-        
-        <div class="post-item">
-            <div class="post-date">Dec 15, 2024</div>
-            <div class="post-title">
-                <a href="/blog/2024/your-latest-post/">Your Latest Blog Post Title</a>
-            </div>
-        </div>
-        
-        <div class="post-item">
-            <div class="post-date">Nov 28, 2024</div>
-            <div class="post-title">
-                <a href="/blog/2024/another-post/">Another Interesting Post</a>
-            </div>
-        </div>
-        
-        <div class="post-item">
-            <div class="post-date">Oct 12, 2024</div>
-            <div class="post-title">
-                <a href="/blog/2024/research-insights/">Research Insights and Findings</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="section">
-        <h2 class="section-title"><a href="/publications/">selected publications</a></h2>
-        
-        <div class="publication-item">
-            <div class="publication-title">Your Important Research Paper Title</div>
-            <div class="publication-venue">In Proceedings of the Important Conference 2024, Location, Date, 2024</div>
-        </div>
-        
-        <div class="publication-item">
-            <div class="publication-title">Another Significant Publication</div>
-            <div class="publication-venue">Journal of Your Field, Vol. X, No. Y, Pages Z-W, 2023</div>
-        </div>
-        
-        <div class="publication-item">
-            <div class="publication-title">Collaborative Research Work</div>
-            <div class="publication-venue">In The Workshop on Specialized Topic, Conference Location, Month Year</div>
-        </div>
-    </section>
+        <!-- Publications Section -->
+        <section class="section" id="publications">
+            <h2 class="section-title">Selected Publications</h2>
+            
+            <div class="publication-item">
+                <div class="publication-title">Your Most Important Research Paper Title</div>
+                <div class="publication-venue">In Proceedings of the Important Conference 2024, Location, Month Year</div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Another Significant Publication in Your Field</div>
+                <div class="publication-venue">Journal of Your Research Area, Vol. X, No. Y, Pages Z-W, 2023</div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Collaborative Research Work with Impact</div>
+                <div class="publication-venue">In The Workshop on Specialized Topic, Conference Location, Month Year</div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section" id="blog">
+            <h2 class="section-title">Blog</h2>
+            <p>Read my blog posts on [platform] about [topics].</p>
+            <p><strong>Stay tuned for more!</strong></p>
+        </section>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active navigation link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
