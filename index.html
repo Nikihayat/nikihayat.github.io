@@ -622,10 +622,13 @@
             // Show selected page
             if (pageName === 'media') {
                 document.getElementById('media-page').classList.add('active');
+                window.history.pushState(null, null, '#media');
             } else if (pageName === 'publications') {
                 document.getElementById('publications-page').classList.add('active');
+                window.history.pushState(null, null, '#publications');
             } else {
                 document.getElementById('home-page').classList.add('active');
+                window.history.pushState(null, null, window.location.pathname);
             }
             
             // Update navigation
