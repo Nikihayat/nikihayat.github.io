@@ -192,11 +192,7 @@
             display: none;
         }
 
-        .page-content.active {
-            display: block;
-        }
-
-        #home-content.active {
+        #home-content {
             display: block;
         }
 
@@ -313,9 +309,9 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">Niki Hayatbini, PhD</a>
             <ul class="nav-links">
-                <li><a href="#about" class="active">About me</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#media">Media Coverage</a></li>
+                <li><a href="#about" class="active" onclick="showPage('home')">About me</a></li>
+                <li><a href="#publications" onclick="showPage('home')">Publications</a></li>
+                <li><a href="#media" onclick="showPage('media')">Media Coverage</a></li>
                 <li><a href="./CV_Hayatbini.pdf" target="_blank">CV</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
@@ -392,53 +388,50 @@
         <!-- Blog Section -->
         <section class="section" id="blog">
             <h2 class="section-title">Blog</h2>
-            <p>Read my blog posts on [platform] about [topics].</p>
             <p><strong>Stay tuned!</strong></p>
         </section>
     </main>
 
     <script>
-        // Page navigation functions
-        function showMediaCoverage() {
+        // Simple page switching function
+        function showPage(page) {
             const homeContent = document.getElementById('home-content');
             const mediaContent = document.getElementById('media-content');
             
-            if (homeContent && mediaContent) {
-                homeContent.classList.remove('active');
-                mediaContent.classList.add('active');
+            if (page === 'media') {
+                homeContent.style.display = 'none';
+                mediaContent.style.display = 'block';
                 
                 // Update navigation
                 document.querySelectorAll('.nav-links a').forEach(link => {
                     link.classList.remove('active');
                 });
-                const mediaLink = document.querySelector('a[href="#media"]');
-                if (mediaLink) {
-                    mediaLink.classList.add('active');
-                }
-            }
-        }
-
-        function showHome() {
-            const homeContent = document.getElementById('home-content');
-            const mediaContent = document.getElementById('media-content');
-            
-            if (homeContent && mediaContent) {
-                mediaContent.classList.remove('active');
-                homeContent.classList.add('active');
+                document.querySelector('a[href="#media"]').classList.add('active');
+            } else {
+                homeContent.style.display = 'block';
+                mediaContent.style.display = 'none';
                 
-                // Update navigation
+                // Update navigation based on which section was clicked
                 document.querySelectorAll('.nav-links a').forEach(link => {
                     link.classList.remove('active');
                 });
-                const aboutLink = document.querySelector('a[href="#about"]');
-                if (aboutLink) {
-                    aboutLink.classList.add('active');
+                
+                if (page === 'home') {
+                    document.querySelector('a[href="#about"]').classList.add('active');
                 }
             }
         }
 
-        // Wait for page to load completely
+        // Logo click handler
         document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.nav-logo');
+            if (logo) {
+                logo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('home');
+                });
+            }
+
             // Mobile menu toggle
             const mobileBtn = document.querySelector('.mobile-menu-btn');
             if (mobileBtn) {
@@ -449,72 +442,6 @@
                     }
                 });
             }
-
-            // Navigation click handlers
-            const aboutLink = document.querySelector('a[href="#about"]');
-            if (aboutLink) {
-                aboutLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showHome();
-                });
-            }
-            
-            const mediaLink = document.querySelector('a[href="#media"]');
-            if (mediaLink) {
-                mediaLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showMediaCoverage();
-                });
-            }
-            
-            const logoLink = document.querySelector('.nav-logo');
-            if (logoLink) {
-                logoLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showHome();
-                });
-            }
-
-            // Smooth scrolling for navigation links (home page only)
-            document.querySelectorAll('a[href^="#"]:not([href="#media"])').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const homeContent = document.getElementById('home-content');
-                    if (homeContent && homeContent.classList.contains('active')) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    }
-                });
-            });
-
-            // Update active navigation link on scroll (home page only)
-            window.addEventListener('scroll', function() {
-                const homeContent = document.getElementById('home-content');
-                if (homeContent && homeContent.classList.contains('active')) {
-                    const sections = document.querySelectorAll('#home-content section[id]');
-                    const navLinks = document.querySelectorAll('.nav-links a:not([href="#media"])');
-                    
-                    let current = '';
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop - 120;
-                        if (window.pageYOffset >= sectionTop) {
-                            current = section.getAttribute('id');
-                        }
-                    });
-
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === '#' + current) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
         });
     </script>
 </body>
