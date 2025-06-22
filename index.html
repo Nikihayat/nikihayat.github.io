@@ -315,7 +315,7 @@
             <ul class="nav-links">
                 <li><a href="#about" class="active">About me</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#media" onclick="showMediaCoverage()">Media Coverage</a></li>
+                <li><a href="#media">Media Coverage</a></li>
                 <li><a href="./CV_Hayatbini.pdf" target="_blank">CV</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
@@ -431,6 +431,11 @@
             document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
                 e.preventDefault();
                 showHome();
+            });
+            
+            document.querySelector('a[href="#media"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                showMediaCoverage();
             });
             
             document.querySelector('.nav-logo').addEventListener('click', function(e) {
