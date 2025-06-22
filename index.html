@@ -152,6 +152,54 @@
             height: 24px;
         }
 
+        /* Media Coverage Styles */
+        .media-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .media-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .media-description {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .media-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .media-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Page switching */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        #home-content.active {
+            display: block;
+        }
+
         .contact-info {
             flex: 1;
             min-width: 0;
@@ -267,7 +315,7 @@
             <ul class="nav-links">
                 <li><a href="#about" class="active">About me</a></li>
                 <li><a href="#publications">Publications</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#media" onclick="showMediaCoverage()">Media Coverage</a></li>
                 <li><a href="./CV_Hayatbini.pdf" target="_blank">CV</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
@@ -345,49 +393,89 @@
         <section class="section" id="blog">
             <h2 class="section-title">Blog</h2>
             <p>Read my blog posts on [platform] about [topics].</p>
-            <p><strong>Stay tuned for more!</strong></p>
+            <p><strong>Stay tuned!</strong></p>
         </section>
     </main>
 
     <script>
+        // Page navigation
+        function showMediaCoverage() {
+            document.getElementById('home-content').classList.remove('active');
+            document.getElementById('media-content').classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector('a[href="#media"]').classList.add('active');
+        }
+
+        function showHome() {
+            document.getElementById('media-content').classList.remove('active');
+            document.getElementById('home-content').classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector('a[href="#about"]').classList.add('active');
+        }
+
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Navigation click handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                showHome();
+            });
+            
+            document.querySelector('.nav-logo').addEventListener('click', function(e) {
+                e.preventDefault();
+                showHome();
+            });
+        });
+
+        // Smooth scrolling for navigation links (home page only)
+        document.querySelectorAll('a[href^="#"]:not([href="#media"])').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (document.getElementById('home-content').classList.contains('active')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
 
-        // Update active navigation link on scroll
+        // Update active navigation link on scroll (home page only)
         window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                if (window.pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
+            if (document.getElementById('home-content').classList.contains('active')) {
+                const sections = document.querySelectorAll('#home-content section[id]');
+                const navLinks = document.querySelectorAll('.nav-links a:not([href="#media"])');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (window.pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
         });
     </script>
 </body>
