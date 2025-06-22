@@ -211,7 +211,63 @@
             line-height: 1.5;
         }
 
-        /* Media Coverage Styles */
+        /* Publication Page Styles */
+        .publication-full-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .publication-full-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .publication-full-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .publication-full-authors {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .publication-full-venue {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .publication-impact {
+            display: inline-block;
+            background-color: #e8f4fd;
+            color: #2980b9;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .publication-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
+        }
         .media-item {
             margin-bottom: 30px;
             padding: 25px;
@@ -306,7 +362,7 @@
             <div class="nav-logo" onclick="showPage('home')">Niki Hayatbini, PhD</div>
             <ul class="nav-links">
                 <li><a onclick="showPage('home')" class="active">About me</a></li>
-                <li><a onclick="showPage('home')">Publications</a></li>
+                <li><a onclick="showPage('publications')">Publications</a></li>
                 <li><a onclick="showPage('media')">Media Coverage</a></li>
                 <li><a href="./CV_Hayatbini.pdf" target="_blank">CV</a></li>
             </ul>
@@ -385,6 +441,146 @@
             </section>
         </div>
 
+        <!-- PUBLICATIONS PAGE -->
+        <div id="publications-page" class="page">
+            <section class="hero-section">
+                <h1 class="name">Publications</h1>
+            </section>
+
+            <section class="section">
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Coronavirus Anxiety Associated with Enhanced Orthorexia Nervosa Symptoms and Reduced Cognitive Flexibility</div>
+                    <div class="publication-full-authors">Hayatbini, N., Knauft, K. M. & Kalia, V. (2025)</div>
+                    <div class="publication-full-venue">Psychological Reports. <a href="https://doi.org/10.1177/00332941251343542" target="_blank" class="publication-link">https://doi.org/10.1177/00332941251343542</a></div>
+                    <span class="publication-impact">IF = 1.7</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Rumination and Gender in the Relation Between Perceived Threat and State Anxiety During COVID-19</div>
+                    <div class="publication-full-authors">Knauft, K. M., Hayatbini, N., Wilensky, S. M., & Kalia, V. (2024)</div>
+                    <div class="publication-full-venue">Psychological Reports. <a href="https://doi.org/10.1177/00332941241246491" target="_blank" class="publication-link">https://doi.org/10.1177/00332941241246491</a></div>
+                    <span class="publication-impact">IF = 1.7</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Adverse Childhood Experiences (ACEs) Associated with Reduced Cognitive Flexibility in Both College and Community Samples</div>
+                    <div class="publication-full-authors">Kalia V., Knauft, K., Hayatbini, N. (2021)</div>
+                    <div class="publication-full-venue">PLoS One, 16(12), e0260822. <a href="https://doi.org/10.1371/journal.pone.0260822" target="_blank" class="publication-link">https://doi.org/10.1371/journal.pone.0260822</a></div>
+                    <span class="publication-impact">IF = 2.9</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Cognitive Reappraisal Moderates the Relationship Between Perfectionism and Cognitive Flexibility</div>
+                    <div class="publication-full-authors">Hayatbini, N., Knauft, K., & Kalia, V. (2021)</div>
+                    <div class="publication-full-venue">Journal of Clinical Psychology, 77(7), 1685-1699. <a href="https://doi.org/10.1002/jclp.23124" target="_blank" class="publication-link">https://doi.org/10.1002/jclp.23124</a></div>
+                    <span class="publication-impact">IF = 2.5</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Are Orthorexia Nervosa Symptoms Associated with Deficits in Inhibitory Control?</div>
+                    <div class="publication-full-authors">Hayatbini, N., Oberle, C.D. & Ali, M.N. (2021)</div>
+                    <div class="publication-full-venue">Journal of Eating and Weight Disorders-Studies on Anorexia, Bulimia and Obesity, 26(5), 1553-1557.</div>
+                    <span class="publication-impact">IF = 2.9</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Cognitive Flexibility and Perceived Threat from COVID-19 Mediate the Relationship Between Childhood Maltreatment and State Anxiety</div>
+                    <div class="publication-full-authors">Kalia, V., Knauft, K., & Hayatbini, N. (2020)</div>
+                    <div class="publication-full-venue">PLoS One, 15(12): e0243881. <a href="https://doi.org/10.1371/journal.pone.0243881" target="_blank" class="publication-link">https://doi.org/10.1371/journal.pone.0243881</a></div>
+                    <span class="publication-impact">IF = 2.9</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Are Orthorexia Nervosa Symptoms Associated with Cognitive Inflexibility?</div>
+                    <div class="publication-full-authors">Hayatbini, N. & Oberle, C.D. (2019)</div>
+                    <div class="publication-full-venue">Psychiatry Research, 271, 464-468.</div>
+                    <span class="publication-impact">IF = 4.2</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Body Image Coping Strategies Among Aesthetic Surgery Clients in Iran</div>
+                    <div class="publication-full-authors">Yazdandoost, R.Y., Hayatbini, N., Fatemi, M. (2017)</div>
+                    <div class="publication-full-venue">World Journal of Plastic Surgery, 6(2), 159-163.</div>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">A Comparative Study of Body Image Dissatisfaction and Psychological Symptoms Among Invasive and Minimally Invasive Aesthetic Surgery Clients and Control Group</div>
+                    <div class="publication-full-authors">Yazdandoost, R.Y., Hayatbini, N., Asgharnejad Farid, A., Gharaee, B. & Latifi, N. (2016)</div>
+                    <div class="publication-full-venue">World Journal of Plastic Surgery, 5(2), 144-149.</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PUBLICATIONS PAGE -->
+        <div id="publications-page" class="page">
+            <section class="hero-section">
+                <h1 class="name">Publications</h1>
+            </section>
+
+            <section class="section">
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Coronavirus Anxiety Associated with Enhanced Orthorexia Nervosa Symptoms and Reduced Cognitive Flexibility</div>
+                    <div class="publication-full-authors">Hayatbini, N., Knauft, K. M. & Kalia, V. (2025)</div>
+                    <div class="publication-full-venue">Psychological Reports. <a href="https://doi.org/10.1177/00332941251343542" target="_blank" class="publication-link">https://doi.org/10.1177/00332941251343542</a></div>
+                    <span class="publication-impact">IF = 1.7</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Rumination and Gender in the Relation Between Perceived Threat and State Anxiety During COVID-19</div>
+                    <div class="publication-full-authors">Knauft, K. M., Hayatbini, N., Wilensky, S. M., & Kalia, V. (2024)</div>
+                    <div class="publication-full-venue">Psychological Reports. <a href="https://doi.org/10.1177/00332941241246491" target="_blank" class="publication-link">https://doi.org/10.1177/00332941241246491</a></div>
+                    <span class="publication-impact">IF = 1.7</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Adverse Childhood Experiences (ACEs) Associated with Reduced Cognitive Flexibility in Both College and Community Samples</div>
+                    <div class="publication-full-authors">Kalia V., Knauft, K., Hayatbini, N. (2021)</div>
+                    <div class="publication-full-venue">PLoS One, 16(12), e0260822. <a href="https://doi.org/10.1371/journal.pone.0260822" target="_blank" class="publication-link">https://doi.org/10.1371/journal.pone.0260822</a></div>
+                    <span class="publication-impact">IF = 2.9</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Cognitive Reappraisal Moderates the Relationship Between Perfectionism and Cognitive Flexibility</div>
+                    <div class="publication-full-authors">Hayatbini, N., Knauft, K., & Kalia, V. (2021)</div>
+                    <div class="publication-full-venue">Journal of Clinical Psychology, 77(7), 1685-1699. <a href="https://doi.org/10.1002/jclp.23124" target="_blank" class="publication-link">https://doi.org/10.1002/jclp.23124</a></div>
+                    <span class="publication-impact">IF = 2.5</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Are Orthorexia Nervosa Symptoms Associated with Deficits in Inhibitory Control?</div>
+                    <div class="publication-full-authors">Hayatbini, N., Oberle, C.D. & Ali, M.N. (2021)</div>
+                    <div class="publication-full-venue">Journal of Eating and Weight Disorders-Studies on Anorexia, Bulimia and Obesity, 26(5), 1553-1557.</div>
+                    <span class="publication-impact">IF = 2.9</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Cognitive Flexibility and Perceived Threat from COVID-19 Mediate the Relationship Between Childhood Maltreatment and State Anxiety</div>
+                    <div class="publication-full-authors">Kalia, V., Knauft, K., & Hayatbini, N. (2020)</div>
+                    <div class="publication-full-venue">PLoS One, 15(12): e0243881. <a href="https://doi.org/10.1371/journal.pone.0243881" target="_blank" class="publication-link">https://doi.org/10.1371/journal.pone.0243881</a></div>
+                    <span class="publication-impact">IF = 2.9</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Are Orthorexia Nervosa Symptoms Associated with Cognitive Inflexibility?</div>
+                    <div class="publication-full-authors">Hayatbini, N. & Oberle, C.D. (2019)</div>
+                    <div class="publication-full-venue">Psychiatry Research, 271, 464-468.</div>
+                    <span class="publication-impact">IF = 4.2</span>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">Body Image Coping Strategies Among Aesthetic Surgery Clients in Iran</div>
+                    <div class="publication-full-authors">Yazdandoost, R.Y., Hayatbini, N., Fatemi, M. (2017)</div>
+                    <div class="publication-full-venue">World Journal of Plastic Surgery, 6(2), 159-163.</div>
+                </div>
+
+                <div class="publication-full-item">
+                    <div class="publication-full-title">A Comparative Study of Body Image Dissatisfaction and Psychological Symptoms Among Invasive and Minimally Invasive Aesthetic Surgery Clients and Control Group</div>
+                    <div class="publication-full-authors">Yazdandoost, R.Y., Hayatbini, N., Asgharnejad Farid, A., Gharaee, B. & Latifi, N. (2016)</div>
+                    <div class="publication-full-venue">World Journal of Plastic Surgery, 5(2), 144-149.</div>
+                </div>
+            </section>
+        </div>
+
         <!-- MEDIA COVERAGE PAGE -->
         <div id="media-page" class="page">
             <section class="hero-section">
@@ -396,14 +592,14 @@
                     <h3 class="media-title">"Perfectionistic Tendencies Are Associated with Reduced Cognitive Flexibility and Heightened Emotional Suppression"</h3>
                     <p class="media-description">This article in PsyPost discusses the significant findings of the research conducted by Hayatbini et al. (2021), highlighting the impact of perfectionism on cognitive and emotional processes.</p>
                     <p><em>Hayatbini, N. (2021)</em></p>
-                    <a href="https://www.psypost.org/perfectionistic-tendencies-are-associated-with-reduced-cognitive-flexibility-and-heightened-emotional-suppression/" target="_blank" class="media-link">Read more here →</a>
+                    <a href="https://www.psypost.org/your-first-article-url" target="_blank" class="media-link">Read more here →</a>
                 </div>
 
                 <div class="media-item">
                     <h3 class="media-title">"Coronavirus Anxiety Associated with Heightened Orthorexia Nervosa Symptoms and Reduced Cognitive Flexibility"</h3>
                     <p class="media-description">This article in PsyPost discusses the significant findings of the research conducted by Hayatbini et al. (2025), highlighting how pandemic-related anxiety combined with reduced cognitive flexibility contributed to an increase in orthorexia nervosa symptoms, as individuals became rigidly preoccupied with healthy eating as a coping mechanism.</p>
                     <p><em>Hayatbini, N. (May 2025)</em></p>
-                    <a href="https://www.psypost.org/coronavirus-anxiety-linked-to-obsessive-healthy-eating-behaviors-during-the-pandemic/" target="_blank" class="media-link">Read more here →</a>
+                    <a href="https://www.psypost.org/your-second-article-url" target="_blank" class="media-link">Read more here →</a>
                 </div>
             </section>
         </div>
@@ -413,11 +609,14 @@
         function showPage(pageName) {
             // Hide all pages
             document.getElementById('home-page').classList.remove('active');
+            document.getElementById('publications-page').classList.remove('active');
             document.getElementById('media-page').classList.remove('active');
             
             // Show selected page
             if (pageName === 'media') {
                 document.getElementById('media-page').classList.add('active');
+            } else if (pageName === 'publications') {
+                document.getElementById('publications-page').classList.add('active');
             } else {
                 document.getElementById('home-page').classList.add('active');
             }
@@ -429,6 +628,8 @@
             
             if (pageName === 'media') {
                 document.querySelector('.nav-links a[onclick="showPage(\'media\')"]').classList.add('active');
+            } else if (pageName === 'publications') {
+                document.querySelector('.nav-links a[onclick="showPage(\'publications\')"]').classList.add('active');
             } else {
                 document.querySelector('.nav-links a[onclick="showPage(\'home\')"]').classList.add('active');
             }
